@@ -1,0 +1,2145 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<title>Power Tab File Header Info</title>
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+  {mso-style-parent:"";
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-ansi-language:EN-CA;}
+h1
+  {mso-style-next:Normal;
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  page-break-after:avoid;
+  mso-outline-level:1;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-font-kerning:0pt;
+  mso-ansi-language:EN-CA;
+  font-weight:normal;
+  font-style:italic;}
+h2
+  {mso-style-next:Normal;
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  page-break-after:avoid;
+  mso-outline-level:2;
+  font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-ansi-language:EN-CA;}
+h3
+  {mso-style-next:Normal;
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  page-break-after:avoid;
+  mso-outline-level:3;
+  font-size:8.0pt;
+  mso-bidi-font-size:12.0pt;
+  font-family:"Times New Roman";
+  mso-ansi-language:EN-CA;
+  font-style:italic;}
+@page Section1
+  {size:8.5in 11.0in;
+  margin:1.0in 1.25in 1.0in 1.25in;
+  mso-header-margin:35.4pt;
+  mso-footer-margin:35.4pt;
+  mso-paper-source:0;}
+div.Section1
+  {page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>Power
+Tab File Header Info<o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>Little Endian Byte Ordering<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>Data
+Types Used<o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>DWORD - unsigned integer, 4 bytes<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>WORD - unsigned short, 2 bytes<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>BYTE - unsigned char, 1 byte<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>CString - Microsoft String - 1, 3 or 7 bytes = length of string,
+followed by the string itself<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>In order to optimize space, the length is stored using variable
+lengthed types.<span style="mso-spacerun: yes">  </span>If the length of the
+string is &lt; 255 (hex = 0xff), the length is stored as a BYTE.<span
+style="mso-spacerun: yes">  </span>If the length is &lt; 65535 (hex = 0xffff),
+the length is stored in a WORD that follows the first BYTE.<span
+style="mso-spacerun: yes">  </span>Otherwise the length is stored as a DWORD
+that follows the first BYTE and WORD.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>Sample Code:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 bgcolor="#f3f3f3" style='background:
+ #F3F3F3;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=590 valign=top style='width:6.15in;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'>UINT ReadStringLength()<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'>{<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>//
+  attempt BYTE length first<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>BYTE
+  bLen;<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>ReadByte(bLen);<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>//
+  If length is not 0xff (255), then we've got the length, otherwise keep
+  reading<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>if
+  (bLen &lt; 0xff)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:2'>                   </span>return
+  bLen;<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>//
+  attempt WORD length<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>WORD
+  wLen;<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>ReadWord(wLen)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>//
+  If length is not 0xffff(65535), then we've got the length, otherwise keep
+  reading<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>if
+  (wLen &lt; 0xffff)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:2'>                   </span>return
+  wLen;<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>//
+  read DWORD of length<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>DWORD
+  dwLen;<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>ReadDWord(dwLen);<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'><span style='mso-tab-count:1'>          </span>return
+  (UINT)dwLen; <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:7.0pt;mso-bidi-font-size:
+  12.0pt;font-family:"Courier New"'>}</span><span lang=EN-CA style='font-size:
+  8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>Header Format: Read the header variables in the following order<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width=679 style='width:509.4pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Variable<o:p></o:p></span></b></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Size<o:p></o:p></span></b></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Description<o:p></o:p></span></b></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Values<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>File Tag<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>DWORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Tag that uniquely identifies a Power Tab file<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>should always be 1650553968<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>File Version<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>WORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Version # for the file (the version of the program that saved the
+  file; since every file format is different, it's also the version of the
+  program needed to read the file)<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Unknown,<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - v1.0<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>2 - v1.0.2<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>3 - v1.5<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>4 - v1.7<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span lang=EN-CA>If File Version = v1.7</span></h3>
+
+<table border=1 cellspacing=0 cellpadding=0 width=679 style='width:509.4pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>File Type<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>The type of Power Tab file<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Song<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Lesson<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>If
+  File Type = Song then<o:p></o:p></span></b></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>File Contents<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Type of score contents contained in the file<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>If bit 1 set, contains Guitar Score data.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>If bit 2 set, contains Bass Score data.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Song Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Artist<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Artist who performed song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Release Type<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Type of release for the song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Public Audio<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Public Video<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>2 - Bootleg<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>3 - Not Released<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>If
+  Release Type = Public Audio then<o:p></o:p></span></b></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Album Type<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Type of album<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Single<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - EP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>2 - LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>3 - Double LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>4 - Triple LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>5 -<span style="mso-spacerun: yes">  </span>Boxset<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Album Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the album<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Year<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>WORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Year album was released<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Live<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Was the song live?<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - No<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Yes<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>else
+  if Release Type = Public Video<o:p></o:p></span></b></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Video Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the video<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Live<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Was the song live?<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - No<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Yes<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>else
+  if Release Type = Bootleg<o:p></o:p></span></b></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Bootleg Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the bootleg<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Month<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>WORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Month bootleg was recorded<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Day<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>WORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Day bootleg was recorded<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Year<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>WORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Year bootleg was recored<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>endif
+  Release Type<o:p></o:p></span></b></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author Type<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Type of author data<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Known Author(s)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Unknown Author(s); Traditional<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>if
+  Author Type = Known Author then<o:p></o:p></span></b></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Music By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author of the music<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Words By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author of the lyrics<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <h1><b><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>endif
+  Author Type<o:p></o:p></span></b></h1>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Arranged By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author who arranged this version of song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Transcribed By 1<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Person who transcribed Guitar Score<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Transcribed By 2<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Person who transcribed Bass Score<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Copyright<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Copyright info<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Lyrics<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Lyrics <o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Perf. Notes 1<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Performance Notes for Guitar Score<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Perf. Notes 2<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Performance Notes for Bass Score<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><i><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>else if FileType = Lesson<o:p></o:p></span></i></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the lesson<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Subtitle<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Subtitle of the lesson<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Style<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>WORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Music Style for the lesson<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Acoustic<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Alternative<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>2 - Bluegrass<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>3 - Blues<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>4 - Christian<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>5 - Country<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>6 - Classical<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>7 - Exercise<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>8 - Experimental<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>9 - Fingerpick<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>10 - Flamenco<span style='mso-tab-count:2'>                          </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>11 - Folk<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>12 - Funk<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>13 - Fusion<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>14 - General<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>15 - Jazz<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>16 - Metal<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>17 - Other<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>18 - Pop<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>19 - Progressive<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>20 - Punk<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>21 - Reggae<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>22 - Rock<span style='mso-tab-count:2'>                 </span><span
+  style='mso-tab-count:1'>                </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>23 - Swing<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>24 - Theory<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>25 - World<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Level<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Playing Level for the lesson<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Beginner<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Intermediate<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>2 - Advanced<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author of the lesson<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Notes<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Lesson notes<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Copyright<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Copyright for the lesson<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=679 colspan=4 valign=top style='width:509.4pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><i><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>endif FileType<o:p></o:p></span></i></b></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span lang=EN-CA>If File Version = v1.5</span></h3>
+
+<table border=1 cellspacing=0 cellpadding=0 width=679 style='width:509.4pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Song Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Artist<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Artist who performed song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Released On<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Type of release for the song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Single<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - EP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>2 - LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>3 - Double LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>4 - Triple LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>5 - Boxset<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>6 - Bootleg<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>7 - Demo<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>8 - Soundtrack<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>9 - Video<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>10 - None<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Release Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the release<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Live<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Was the song live?<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - No<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Yes<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Music By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author of the music<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Words By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author of the lyrics<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Arranged By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author who arranged this version of song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Year<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>WORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Year album was released<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author Type<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Type of author data<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Known Author<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Traditional<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Copyright<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Copyright info<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Lyrics<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Lyrics <o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'>* Note - Transcriber and Perf. Notes were stored within the score
+portion of the file in this version, so they can't be accessed<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h3><span lang=EN-CA>If File Version = v1.0 OR v1.0.2</span></h3>
+
+<table border=1 cellspacing=0 cellpadding=0 width=679 style='width:509.4pt;
+ border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Song Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Artist<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Artist who performed song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Released On<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Type of release for the song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Single<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - EP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>2 - LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>3 - Double LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>4 - Triple LP<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>5 - Boxset<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>6 - Bootleg<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>7 - Demo<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>8 - Soundtrack<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>9 - Video<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>10 - None<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Release Title<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Title of the release<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Live<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Was the song live?<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - No<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Yes<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Music By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author of the music<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Words By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author of the lyrics<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Arranged By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author who arranged this version of song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Transcribed By<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Person who transcribed song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Year<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>WORD<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Year album was released<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Author Type<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>BYTE<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Type of author data<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>0 - Known Author<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>1 - Traditional<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Copyright<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Copyright info<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Lyrics<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Lyrics <o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=118 valign=top style='width:88.55pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Perf. Notes<o:p></o:p></span></p>
+  </td>
+  <td width=81 valign=top style='width:60.85pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>CString<o:p></o:p></span></p>
+  </td>
+  <td width=288 valign=top style='width:3.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt'>Performances notes for the song<o:p></o:p></span></p>
+  </td>
+  <td width=192 valign=top style='width:2.0in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-CA
+style='font-size:8.0pt;mso-bidi-font-size:12.0pt'>Copyright (c) 1999-2001 Brad
+Larsen.<span style="mso-spacerun: yes">  </span>All Rights Reserved.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='font-size:8.0pt;mso-bidi-font-size:
+12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
