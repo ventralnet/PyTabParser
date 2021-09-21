@@ -1,0 +1,2 @@
+class TabException(Exception):
+  pass
