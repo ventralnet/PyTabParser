@@ -1,7 +1,6 @@
 import os.path
 
-from PyTabParser import TabException
-from PyByteReader import ByteReader
+from PyTabParser import ByteReader, TabException
 
 FILE_TYPE_SONG = 0
 FILE_TYPE_LESSON = 1
