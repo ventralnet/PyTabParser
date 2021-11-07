@@ -46,7 +46,7 @@ class PowerTab:
     return self.metadata
 
   def _read_version(self):
-    version = self.byte_reader.readStringLength(4)
+    version = self.byte_reader.readStringBytes(4)
     num = self.byte_reader.readShort()
     self.version = f"{version}-{num}"
     if not num in [1, 2, 3, 4]:

@@ -13,5 +13,12 @@ class ByteReader:
     string = self.readStringBytes(defined_length) 
     return string
 
+  def readInt(self):
+    return int.from_bytes(self.file_input.read(4), 'big')
+
+  def readShort(self):
+    bytes = self.file_input.read(2)
+    return ((bytes[1] & 0xff) << 8) | (bytes[0] & 0xff)
+
   def readByteAsInt(self):
     return int.from_bytes(self.file_input.read(1), 'big')
