@@ -16,26 +16,12 @@ class GuitarPro3TabTest(unittest.TestCase):
   #   self.assertEqual(self.tab.version, "FICHIER GUITAR PRO v3.00")
 
   def test_attributes(self):
-    self.assert_metadata_field('title', "Annie's Song") 
-
-
-  # def test_get_metadata_lesson_type(self):
-  #   self.powertab = PowerTab(os.path.abspath(f"{self.resource_folder}/test-lesson.ptb"))
-  #   self.assert_metadata_field('file_type', FILE_TYPE_LESSON) 
-  #   self.powertab = PowerTab(os.path.abspath(f"{self.resource_folder}/test-song.ptb"))
-  #   self.assert_metadata_field('file_type', FILE_TYPE_SONG) 
-
-  # def test_get_title(self):
-  #   self.powertab = PowerTab(os.path.abspath(f"{self.resource_folder}/test-song.ptb"))
-  #   self.assert_metadata_field('title', 'Test Title')
-  #   self.powertab = PowerTab(os.path.abspath(f"{self.resource_folder}/test-lesson.ptb"))
-  #   self.assert_metadata_field('title', 'Test Title') 
-
-  # def test_get_song(self):
-  #   self.powertab = PowerTab(os.path.abspath(f"{self.resource_folder}/test-song.ptb"))
-  #   self.assert_metadata_field('artist', 'Test Artist')
-  #   self.powertab = PowerTab(os.path.abspath(f"{self.resource_folder}/test-lesson.ptb"))
-  #   self.assert_metadata_field('artist', 'Test Subtitle') 
+    self.assert_metadata_field('title', "Stages") 
+    self.assert_metadata_field('artist', "ZZ Top") 
+    self.assert_metadata_field('album', "Afterburner") 
+    self.assert_metadata_field('author', "test author") 
+    self.assert_metadata_field('copyright', "test copyright") 
+    self.assert_metadata_field('writer', "test tab creator") 
 
 if __name__ == '__main__':
   unittest.main()
