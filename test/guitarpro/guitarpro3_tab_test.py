@@ -6,13 +6,14 @@ from PyTabParser import Guitarpro3Tab
 class GuitarPro3TabTest(unittest.TestCase):
 
   def setUp(self):
-    self.resource_folder = f"{os.path.dirname(__file__)}/../resources/ptb"
+    self.resource_folder = f"{os.path.dirname(__file__)}/../resources/gp/"
 
   def assert_metadata_field(self, field_name, expected):
     self.assertEqual(self.tab.get_metadata()[field_name], expected)
 
   def test_get_version(self):
-    self.tab = Guitarpro3Tab(os.path.abspath(f"{self.resource_folder}/test-song-public-release.ptb"))
+    self.tab = Guitarpro3Tab(os.path.abspath(f"{self.resource_folder}/gp3.gp3"))
+    print(self.tab.version)
     # self.assertEqual(self.tab.get_version(), "ptab-4")
 
   # def test_get_metadata_lesson_type(self):
