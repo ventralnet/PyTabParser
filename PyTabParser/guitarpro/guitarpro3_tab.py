@@ -7,4 +7,6 @@ class Guitarpro3Tab(BaseGuitarproTab):
     super(Guitarpro3Tab, self).__init__(file_path)
 
   def initialize(self):
-    pass
+    metadata = self.metadata
+    len = self.byte_reader.readInt()
+    metadata["title"] = len

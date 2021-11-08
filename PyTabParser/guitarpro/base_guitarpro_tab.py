@@ -35,10 +35,14 @@ class BaseGuitarproTab(ABC):
     try:
       length = self.byte_reader.readByteAsInt()
       stringLength = length if length >= 0 and length <= 30 else 30
-      self.version = self.byte_reader.readStringBytes(stringLength)
+      self.version = self.byte_reader.readStringBytes(30)
+      self.version = self.version[0:stringLength]
     except(UnicodeDecodeError):
       self.version = 'CANT READ VERSION'
       
+  def get_metadata(self):
+    return self.metadata
+
 #    version = self.byte_reader.readStringLength(4)
 #    num = self.byte_reader.readShort()
 #    self.version = f"{version}-{num}"

@@ -14,7 +14,8 @@ class ByteReader:
     return string
 
   def readInt(self):
-    return int.from_bytes(self.file_input.read(4), 'big')
+    bytes = self.file_input.read(4)
+    return ((bytes[3] & 0xff) << 24) | ((bytes[2] & 0xff) << 16) | ((bytes[1] & 0xff) << 8) | (bytes[0] & 0xff)
 
   def readShort(self):
     bytes = self.file_input.read(2)
