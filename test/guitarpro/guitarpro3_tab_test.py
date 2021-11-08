@@ -13,7 +13,7 @@ class GuitarPro3TabTest(unittest.TestCase):
 
   def test_get_version(self):
     self.tab = Guitarpro3Tab(os.path.abspath(f"{self.resource_folder}/gp3.gp3"))
-    print(self.tab.version)
+    self.assertEqual(self.tab.version, "FICHIER GUITAR PRO v3.00")
     # self.assertEqual(self.tab.get_version(), "ptab-4")
 
   # def test_get_metadata_lesson_type(self):

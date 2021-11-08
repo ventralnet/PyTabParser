@@ -33,8 +33,9 @@ class BaseGuitarproTab(ABC):
 
   def _read_version(self):
     try:
-      self.version = self.byte_reader.readString(30)
-      print(f"{self.version}   {self.file_path}")
+      length = self.byte_reader.readByteAsInt()
+      stringLength = length if length >= 0 and length <= 30 else 30
+      self.version = self.byte_reader.readStringBytes(stringLength)
     except(UnicodeDecodeError):
       self.version = 'CANT READ VERSION'
       
