@@ -23,9 +23,14 @@ class BaseGuitarproTab(ABC):
     except:
       raise Exception(f"Corrupt file [{self.file_path}]")  
 
-  @abstractmethod
   def initialize(self):
-    pass
+    self.metadata["title"] = self.readStringByteSizeOfInteger()
+    self.readStringByteSizeOfInteger()
+    self.metadata["artist"] = self.readStringByteSizeOfInteger()
+    self.metadata["album"] = self.readStringByteSizeOfInteger()
+    self.metadata["author"] = self.readStringByteSizeOfInteger()
+    self.metadata["copyright"] = self.readStringByteSizeOfInteger()
+    self.metadata["writer"] = self.readStringByteSizeOfInteger()
 
   def __initialize(self):
     self._read_version()

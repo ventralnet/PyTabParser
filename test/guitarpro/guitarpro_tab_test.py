@@ -1,19 +1,17 @@
 import os
 import unittest
 
-from PyTabParser import Guitarpro3Tab
+from PyTabParser import GuitarproTab
 
-class GuitarPro3TabTest(unittest.TestCase):
+class GuitarProTabTest(unittest.TestCase):
 
   def setUp(self):
     self.resource_folder = f"{os.path.dirname(__file__)}/../resources/gp/"
-    self.tab = Guitarpro3Tab(os.path.abspath(f"{self.resource_folder}/gp3.gp3"))
+    self.tab = GuitarproTab(os.path.abspath(f"{self.resource_folder}/gp3.gp3"))
 
   def assert_metadata_field(self, field_name, expected):
     self.assertEqual(self.tab.get_metadata()[field_name], expected)
-
-  # def test_get_version(self):
-  #   self.assertEqual(self.tab.version, "FICHIER GUITAR PRO v3.00")
+    self.assertEqual(self.tab.version, "FICHIER GUITAR PRO v3.00")
 
   def test_attributes(self):
     self.assert_metadata_field('title', "Stages") 
